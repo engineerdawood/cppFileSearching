@@ -17,6 +17,7 @@ time_t endT;
 
 string token = "This";      // Phrase to find
 string fileName = "./file.txt";      // file path to find
+int parts = 4;              // number of threads and file parts
 
 void searchInString(string test);
 ifstream openFile();
@@ -64,7 +65,6 @@ void searchFourProcess(ifstream & file){
     file.seekg(0, ios::beg);
 
     cout << "\nSearching in Four Processes";
-    int parts = 4;
     // divide file into 4 equal parts
     string line = "";
     string fileString = "";
@@ -81,7 +81,7 @@ void searchFourProcess(ifstream & file){
         str_size = fileString.length();
     }
     
-    string fileStringParts[parts];  //4 parts of String
+    string fileStringParts[parts];  //n parts of String
     int partsCounter = -1;      //counter starts from -1 for first array to be 0
     int part_size = str_size / parts;
 
